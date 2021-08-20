@@ -1,5 +1,5 @@
-﻿using Data.Interfaces;
-using Data.Models;
+﻿using MyBlog.Data.Interfaces;
+using MyBlog.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace MyBlog.Data
 {
-    class MyBlogApiServerSide : IMyBlogApi
+    public class MyBlogApiServerSide : IMyBlogApi
     {
         IDbContextFactory<MyBlogDbContext> factory;
         public MyBlogApiServerSide(IDbContextFactory<MyBlogDbContext> factory)

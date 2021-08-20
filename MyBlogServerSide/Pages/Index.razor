@@ -1,7 +1,37 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+@using MyBlog.Data.Interfaces
+@using MyBlog.Data.Models
+@inject IMyBlogApi api
+    <button @onclick="AddSomePosts">Add some fake posts</button>
+    <br />
+    <br />
+    <ul>
+        @foreach(var post in posts)
+            {
+                <li>@post.Title</li>
+            }
+    </ul>
 
-Welcome to your new app.
+@code{
+    protected async Task AddSomePosts()
+    {
+        for (int i = 1; i <= 10; i++)
+        {
+            await api.SaveBlogPostAsync(new BlogPost()
+            {
+                PublishDate = DateTime.Now,
+                Title = $"Blog Post {i}",
+                Text = "Text"
+            });
+        }
+    }
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    protected List<BlogPost> posts = new List<BlogPost>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        posts = await api.GetBlogPostsAsync(10, 0);
+        await base.OnInitializedAsync();
+    }
+} 

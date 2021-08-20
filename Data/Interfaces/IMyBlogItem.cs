@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.Interfaces
+namespace MyBlog.Data.Interfaces
 {
-    interface IMyBlogItem
+    public interface IMyBlogItem
     {
         public int Id { get; set; }
     }

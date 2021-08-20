@@ -1,4 +1,4 @@
-﻿using Data.Models;
+﻿using MyBlog.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace MyBlog.Data
 {
     public class MyBlogDbContext : DbContext
     {
